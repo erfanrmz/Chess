@@ -1,14 +1,12 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] arg)  {
+    public static void main(String[] arg) {
         Ground chess = new Ground();
-
+        int moveNumber = 0;
         Scanner sc = new Scanner(System.in);
-        while (((King)chess.getMans(30)).isMate() == false && ((King)chess.getMans(14)).isMate() == false)
-        {
+        while (((King) chess.getMans(30)).isMate() == false && ((King) chess.getMans(14)).isMate() == false) {
             chess.printground();
-            int moveNumber = 0;
             char turn = 'W';
             if (moveNumber % 2 == 0)
                 turn = 'W';
@@ -19,26 +17,20 @@ public class Main {
             String move;
             manName = sc.next();
             move = sc.next();
-            yF = (int)move.charAt(0) - 65;
-            xF = ((int)move.charAt(1)) -49;
+            yF = (int) move.charAt(0) - 65;
+            xF = ((int) move.charAt(1)) - 49;
             Chessman man = chess.findMan(manName);
-            if (man.getColor() == turn)
-            {
+            if (man.getColor() == turn) {
 
 
                 if (man.isDeath())
                     System.out.println("You cant move dead mans \n Choose another man:");
-                else
-                {
-                    System.out.println(xF);
-                    System.out.println(yF);
-                    if (man.move(xF,yF,chess) == true)
+                else {
+                    if (man.move(xF, yF, chess) == true)
                         moveNumber++;
-                    System.out.println("hello");
                 }
-            }
-            else
-                System.out.println("Its not " +(man.getColor() == 'B'?"Black":"White")+  " turn");
+            } else
+                System.out.println("Its not " + (man.getColor() == 'B' ? "Black" : "White") + " turn");
         }
     }
 }

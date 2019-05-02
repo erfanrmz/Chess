@@ -4,8 +4,8 @@ public abstract class Chessman {
     private int x;
     private int y;
     private boolean death;
-    public Chessman(String name , char color , int x , int y)
-    {
+
+    public Chessman(String name, char color, int x, int y) {
         death = false;
         this.name = name;
         this.color = color;
@@ -47,5 +47,5 @@ public abstract class Chessman {
         this.y = y;
     }
 
-    abstract boolean  move (int xF, int yF, Ground ground);
+    abstract boolean move(int xF, int yF, Ground ground);
 }

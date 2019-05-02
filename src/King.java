@@ -1,6 +1,7 @@
 public class King extends Chessman {
     private boolean check;
     private boolean mate;
+
     public King(String name, char color, int x, int y) {
         super(name, color, x, y);
         check = false;
@@ -12,7 +13,7 @@ public class King extends Chessman {
     }
 
     @Override
-    public boolean move(int xF, int yF,Ground ground) {
+    public boolean move(int xF, int yF, Ground ground) {
         return false;
 
     }
