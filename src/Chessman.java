@@ -17,13 +17,35 @@ public abstract class Chessman {
         return name;
     }
 
+    public char getColor() {
+        return color;
+    }
+
     public int getX() {
         return x;
     }
+
 
     public int getY() {
         return y;
     }
 
-    abstract public void move (int xF, int yF);
+
+    public void setDeath(boolean death) {
+        this.death = death;
+    }
+
+    public boolean isDeath() {
+        return death;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    abstract boolean  move (int xF, int yF, Ground ground);
 }

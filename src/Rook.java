@@ -4,7 +4,8 @@ public class Rook extends Chessman {
     }
 
     @Override
-    public void move(int xF, int yF) {
+    public boolean move(int xF, int yF,Ground ground) {
+        return false;
 
     }
 

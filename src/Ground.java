@@ -43,16 +43,42 @@ public class Ground {
 
     }
 
+    public Chessman getMans(int i) {
+        return mans[i];
+    }
+
+    public String getCell(int i , int j) {
+        return cell[i][j];
+    }
+
     public void setCell(String cell , int i , int j) {
         this.cell[i][j] = cell;
     }
+    public Chessman findMan (String name)
+    {
+        for (int i = 0 ; i < 32 ; i++)
+        {
+            if (name.equals(mans[i].getName()))
+                return mans[i];
+        }
+        return null;
+    }
+    public boolean checkEmpty(int i , int j)
+    {
+        if (cell[i][j].equals("   "))
+            return true;
+        return false;
+    }
     public void printground()
     {
+        System.out.println("    A   B   C   D   E   F   G   H");
         for (int i = 0 ; i < 8 ; i++)
         {
+            System.out.print((i+1) + " " );
             for (int j = 0 ; j < 8 ; j++)
                 System.out.print("|" + cell[i][j]);
-            System.out.println("|");
+            System.out.println("| " + (i+1));
         }
+        System.out.println("    A   B   C   D   E   F   G   H");
     }
 }

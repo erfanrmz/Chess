@@ -3,7 +3,8 @@ public class Queen extends Chessman {
         super(name, color, x, y);
     }
     @Override
-    public void move(int xF, int yF) {
+    public boolean move(int xF, int yF,Ground ground) {
+        return false;
 
     }
 
