@@ -1,7 +1,8 @@
 public class Pawn extends Chessman {
-
-    public Pawn(String name, char color, int x, int y , Ground ground) {
-        super(name, color, x, y,ground);
+    private boolean firstMove;
+    public Pawn(String name, char color, int x, int y) {
+        super(name, color, x, y);
+        firstMove = false;
     }
 
     @Override

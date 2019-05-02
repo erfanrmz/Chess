@@ -1,6 +1,6 @@
 public class Rook extends Chessman {
-    public Rook(String name, char color, int x, int y,Ground ground) {
-        super(name, color, x, y,ground);
+    public Rook(String name, char color, int x, int y) {
+        super(name, color, x, y);
     }
 
     @Override

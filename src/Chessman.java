@@ -3,13 +3,27 @@ public abstract class Chessman {
     private char color;
     private int x;
     private int y;
-    public Chessman(String name , char color , int x , int y , Ground ground)
+    private boolean death;
+    public Chessman(String name , char color , int x , int y)
     {
+        death = false;
         this.name = name;
         this.color = color;
         this.x = x;
         this.y = y;
-        ground.setCell(name,x,y);
     }
-    abstract public void move (int xF,int yF);
+
+    public String getName() {
+        return name;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    abstract public void move (int xF, int yF);
 }
