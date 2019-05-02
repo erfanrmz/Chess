@@ -21,7 +21,7 @@ public class Pawn extends Chessman {
                 ground.setCell(getName(), getX(), getY());
                 firstMove = true;
                 return true;
-            } else if (xF - getX() == 1 && yF - getY() == 1 && ground.checkEmpty(getX() + 1, getY() + 1) == false) {
+            } else if (xF - getX() == 1 && yF - getY() == 1 && ground.checkEmpty(getX() + 1, getY() + 1) == false && ground.getCell(getX() + 1, getY() + 1).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() + 1, getY() + 1)).setDeath(true);
                 ground.findMan(ground.getCell(getX() + 1, getY() + 1)).setX(-1);
@@ -30,7 +30,7 @@ public class Pawn extends Chessman {
                 setY(getY() + 1);
                 ground.setCell(getName(), getX(), getY());
                 return true;
-            } else if (xF - getX() == 1 && yF - getY() == -1 && ground.checkEmpty(getX() + 1, getY() - 1) == false) {
+            } else if (xF - getX() == 1 && yF - getY() == -1 && ground.checkEmpty(getX() + 1, getY() - 1) == false && ground.getCell(getX() + 1, getY() - 1).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() + 1, getY() - 1)).setDeath(true);
                 ground.findMan(ground.getCell(getX() + 1, getY() - 1)).setX(-1);
@@ -57,7 +57,7 @@ public class Pawn extends Chessman {
                 ground.setCell(getName(), getX(), getY());
                 firstMove = true;
                 return true;
-            } else if (xF - getX() == -1 && yF - getY() == 1 && ground.checkEmpty(getX() - 1, getY() + 1) == false) {
+            } else if (xF - getX() == -1 && yF - getY() == 1 && ground.checkEmpty(getX() - 1, getY() + 1) == false && ground.getCell(getX() - 1, getY() + 1).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() - 1, getY() + 1)).setDeath(true);
                 ground.findMan(ground.getCell(getX() - 1, getY() + 1)).setX(-1);
@@ -66,7 +66,7 @@ public class Pawn extends Chessman {
                 setY(getY() + 1);
                 ground.setCell(getName(), getX(), getY());
                 return true;
-            } else if (xF - getX() == -1 && yF - getY() == -1 && ground.checkEmpty(getX() - 1, getY() - 1) == false) {
+            } else if (xF - getX() == -1 && yF - getY() == -1 && ground.checkEmpty(getX() - 1, getY() - 1) == false && ground.getCell(getX() - 1, getY() - 1).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() - 1, getY() - 1)).setDeath(true);
                 ground.findMan(ground.getCell(getX() - 1, getY() - 1)).setX(-1);
