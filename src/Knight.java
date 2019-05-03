@@ -83,7 +83,7 @@ public class Knight extends Chessman {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() - 1, getY() - 2)).setDeath(true);
                 ground.findMan(ground.getCell(getX() - 1, getY() - 2)).setX(-1);
-                ground.findMan(ground.getCell(getX() - 2, getY() - 2)).setY(-1);
+                ground.findMan(ground.getCell(getX() - 1, getY() - 2)).setY(-1);
                 setX(getX() - 1);
                 setY(getY() - 2);
                 ground.setCell(getName(), getX(), getY());
@@ -101,7 +101,7 @@ public class Knight extends Chessman {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() + 1, getY() + 2)).setDeath(true);
                 ground.findMan(ground.getCell(getX() + 1, getY() + 2)).setX(-1);
-                ground.findMan(ground.getCell(getX() + 2, getY() + 2)).setY(-1);
+                ground.findMan(ground.getCell(getX() + 1, getY() + 2)).setY(-1);
                 setX(getX() + 1);
                 setY(getY() + 2);
                 ground.setCell(getName(), getX(), getY());
@@ -119,7 +119,7 @@ public class Knight extends Chessman {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() + 1, getY() - 2)).setDeath(true);
                 ground.findMan(ground.getCell(getX() + 1, getY() - 2)).setX(-1);
-                ground.findMan(ground.getCell(getX() + 2, getY() - 2)).setY(-1);
+                ground.findMan(ground.getCell(getX() + 1, getY() - 2)).setY(-1);
                 setX(getX() + 1);
                 setY(getY() - 2);
                 ground.setCell(getName(), getX(), getY());
@@ -137,7 +137,7 @@ public class Knight extends Chessman {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() - 1, getY() + 2)).setDeath(true);
                 ground.findMan(ground.getCell(getX() - 1, getY() + 2)).setX(-1);
-                ground.findMan(ground.getCell(getX() - 2, getY() + 2)).setY(-1);
+                ground.findMan(ground.getCell(getX() - 1, getY() + 2)).setY(-1);
                 setX(getX() - 1);
                 setY(getY() + 2);
                 ground.setCell(getName(), getX(), getY());
