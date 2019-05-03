@@ -28,6 +28,8 @@ public class Main {
                 else {
                     if (man.move(xF, yF, chess) == true)
                         moveNumber++;
+                    else
+                        System.out.println("Wrong move , Try again!");
                 }
             } else
                 System.out.println("Its not " + (man.getColor() == 'B' ? "Black" : "White") + " turn");
