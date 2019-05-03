@@ -19,8 +19,8 @@ public class Ground {
         mans[11] = new Knight("WN2", 'W', 0, 6);
         mans[12] = new Bishop("WB1", 'W', 0, 2);
         mans[13] = new Bishop("WB2", 'W', 0, 5);
-        mans[14] = new King("WK ", 'W', 0, 3);
-        mans[15] = new Queen("WQ ", 'W', 0, 4);
+        mans[14] = new King("WK1", 'W', 0, 3);
+        mans[15] = new Queen("WQ1", 'W', 0, 4);
         for (int i = 0; i < 8; i++) {
             String name = "BP" + i;
             mans[i + 16] = new Pawn(name, 'B', 6, i);
@@ -32,8 +32,8 @@ public class Ground {
         mans[27] = new Knight("BN2", 'B', 7, 6);
         mans[28] = new Bishop("BB1", 'B', 7, 2);
         mans[29] = new Bishop("BB2", 'B', 7, 5);
-        mans[30] = new King("BK ", 'B', 7, 3);
-        mans[31] = new Queen("BQ ", 'B', 7, 4);
+        mans[30] = new King("BK1", 'B', 7, 3);
+        mans[31] = new Queen("BQ1", 'B', 7, 4);
         for (int i = 0; i < 32; i++)
             setCell(mans[i].getName(), mans[i].getX(), mans[i].getY());
 
