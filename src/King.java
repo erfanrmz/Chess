@@ -8,6 +8,18 @@ public class King extends Chessman {
         mate = false;
     }
 
+    public void setCheck(boolean check) {
+        this.check = check;
+    }
+
+    public boolean isCheck() {
+        return check;
+    }
+
+    public void setMate(boolean mate) {
+        this.mate = mate;
+    }
+
     public boolean isMate() {
         return mate;
     }

@@ -5,7 +5,7 @@ public class Bishop extends Chessman {
 
     @Override
     public boolean move(int xF, int yF, Ground ground) {
-        if (xF - getX() > 0 && yF - getY() > 0) {
+        if (xF - getX() > 0 && yF - getY() > 0 && xF - getX() == yF - getY()) {
             for (int i = getX() + 1 , j = getY() +1 ; i < xF  && j < yF; i++ , j++)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -28,7 +28,7 @@ public class Bishop extends Chessman {
                 return true;
             }
         }
-        else if (xF - getX() < 0 && yF - getY() > 0) {
+        else if (xF - getX() < 0 && yF - getY() > 0 && xF - getX() == (yF - getY())*-1) {
             for (int i = getX() -1 , j = getY() +1 ; i > xF && j < yF ; i-- , j++)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -51,7 +51,7 @@ public class Bishop extends Chessman {
                 return true;
             }
         }
-        else if (xF - getX() < 0 && yF - getY() < 0) {
+        else if (xF - getX() < 0 && yF - getY() < 0 && xF - getX() == yF - getY()) {
             for (int i = getX() -1 , j = getY() - 1 ; i > xF && j > yF ; i-- , j--)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -74,7 +74,7 @@ public class Bishop extends Chessman {
                 return true;
             }
         }
-        else if (xF - getX() > 0 && yF - getY() < 0) {
+        else if (xF - getX() > 0 && yF - getY() < 0 && xF - getX() == (yF - getY())*-1) {
             for (int i = getX() +1 , j = getY() - 1 ; i < xF && j > yF ; i++ , j--)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -101,7 +101,7 @@ public class Bishop extends Chessman {
     }
     public boolean checkMove (int xF , int yF , Ground ground)
     {
-        if (xF - getX() > 0 && yF - getY() > 0) {
+        if (xF - getX() > 0 && yF - getY() > 0 && xF - getX() == yF - getY()) {
             for (int i = getX() + 1 , j = getY() +1 ; i < xF  && j < yF; i++ , j++)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -113,7 +113,7 @@ public class Bishop extends Chessman {
                 return true;
             }
         }
-        else if (xF - getX() < 0 && yF - getY() > 0) {
+        else if (xF - getX() < 0 && yF - getY() > 0 && xF - getX() == (yF - getY())*-1) {
             for (int i = getX() -1 , j = getY() +1 ; i > xF && j < yF ; i-- , j++)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -125,7 +125,7 @@ public class Bishop extends Chessman {
                 return true;
             }
         }
-        else if (xF - getX() < 0 && yF - getY() < 0) {
+        else if (xF - getX() < 0 && yF - getY() < 0 && xF - getX() == yF - getY()) {
             for (int i = getX() -1 , j = getY() - 1 ; i > xF && j > yF ; i-- , j--)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -137,7 +137,7 @@ public class Bishop extends Chessman {
                 return true;
             }
         }
-        else if (xF - getX() > 0 && yF - getY() < 0) {
+        else if (xF - getX() > 0 && yF - getY() < 0 && xF - getX() == (yF - getY())*-1) {
             for (int i = getX() +1 , j = getY() - 1 ; i < xF && j > yF ; i++ , j--)
                 if (!ground.checkEmpty(i, j))
                     return false;

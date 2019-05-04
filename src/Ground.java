@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Ground {
     private String[][] cell;
     private Chessman[] mans;
@@ -39,9 +41,18 @@ public class Ground {
 
 
     }
+    public Object clone() throws
+            CloneNotSupportedException
+    {
+        return super.clone();
+    }
 
-    public Chessman getMans(int i) {
+    public Chessman getMan(int i) {
         return mans[i];
+    }
+
+    public Chessman[] getMans() {
+        return mans;
     }
 
     public String getCell(int i, int j) {
@@ -76,4 +87,42 @@ public class Ground {
         }
         System.out.println("    A   B   C   D   E   F   G   H");
     }
+    public  ArrayList<Chessman> findThreatingMans (int x ,int y , Ground ground)
+    {
+        ArrayList<Chessman> Threats = new ArrayList<>();
+        Chessman[] mans = ground.getMans();
+        for (int i = 0 ; i < 32 && !mans[i].isDeath() ; i++ )
+        {
+            if (mans[i].checkMove(x,y,ground))
+                Threats.add(mans[i]);
+        }
+        return Threats;
+    }
+    public Boolean haveThreat (int x , int y , Ground ground ,char color)
+    {
+        for (int i = 0 ; i < 32 && !mans[i].isDeath() ; i++ )
+        {
+            if (mans[i].checkMove(x,y,ground) && mans[i].getColor() != color)
+                return true;
+
+        }
+        return false;
+
+
+    }
+    public Boolean check (char color , Ground ground)
+    {
+        if (color == 'W' && haveThreat(mans[14].getX(),mans[14].getY(),ground,mans[14].getColor()))
+        {
+            return true;
+        }
+        else if (color == 'B' && haveThreat(mans[30].getX(),mans[30].getY(),ground,mans[30].getColor()))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+
 }

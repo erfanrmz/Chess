@@ -77,7 +77,7 @@ public class Queen extends Chessman {
                 ground.setCell(getName(), getX(), getY());
                 return true;
             }
-        } else if (xF - getX() > 0 && yF - getY() > 0) {
+        } else if (xF - getX() > 0 && yF - getY() > 0 && xF - getX() == yF - getY()) {
             for (int i = getX() + 1, j = getY() + 1; i < xF && j < yF; i++, j++)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -97,7 +97,7 @@ public class Queen extends Chessman {
                 ground.setCell(getName(), getX(), getY());
                 return true;
             }
-        } else if (xF - getX() < 0 && yF - getY() > 0) {
+        } else if (xF - getX() < 0 && yF - getY() > 0 && xF - getX() == (yF - getY())*-1) {
             for (int i = getX() - 1, j = getY() + 1; i > xF && j < yF; i--, j++)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -117,7 +117,7 @@ public class Queen extends Chessman {
                 ground.setCell(getName(), getX(), getY());
                 return true;
             }
-        } else if (xF - getX() < 0 && yF - getY() < 0) {
+        } else if (xF - getX() < 0 && yF - getY() < 0 && xF - getX() == yF - getY()) {
             for (int i = getX() - 1, j = getY() - 1; i > xF && j > yF; i--, j--)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -137,7 +137,7 @@ public class Queen extends Chessman {
                 ground.setCell(getName(), getX(), getY());
                 return true;
             }
-        } else if (xF - getX() > 0 && yF - getY() < 0) {
+        } else if (xF - getX() > 0 && yF - getY() < 0 && xF - getX() == (yF - getY())*-1) {
             for (int i = getX() + 1, j = getY() - 1; i < xF && j > yF; i++, j--)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -199,7 +199,7 @@ public class Queen extends Chessman {
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 return true;
             }
-        } else if (xF - getX() > 0 && yF - getY() > 0) {
+        } else if (xF - getX() > 0 && yF - getY() > 0 && xF - getX() == yF - getY()) {
             for (int i = getX() + 1, j = getY() + 1; i < xF && j < yF; i++, j++)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -208,7 +208,7 @@ public class Queen extends Chessman {
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 return true;
             }
-        } else if (xF - getX() < 0 && yF - getY() > 0) {
+        } else if (xF - getX() < 0 && yF - getY() > 0 && xF - getX() == (yF - getY())*-1) {
             for (int i = getX() - 1, j = getY() + 1; i > xF && j < yF; i--, j++)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -217,7 +217,7 @@ public class Queen extends Chessman {
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 return true;
             }
-        } else if (xF - getX() < 0 && yF - getY() < 0) {
+        } else if (xF - getX() < 0 && yF - getY() < 0 && xF - getX() == yF - getY()) {
             for (int i = getX() - 1, j = getY() - 1; i > xF && j > yF; i--, j--)
                 if (!ground.checkEmpty(i, j))
                     return false;
@@ -226,7 +226,7 @@ public class Queen extends Chessman {
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 return true;
             }
-        } else if (xF - getX() > 0 && yF - getY() < 0) {
+        } else if (xF - getX() > 0 && yF - getY() < 0 && xF - getX() == (yF - getY())*-1) {
             for (int i = getX() + 1, j = getY() - 1; i < xF && j > yF; i++, j--)
                 if (!ground.checkEmpty(i, j))
                     return false;
