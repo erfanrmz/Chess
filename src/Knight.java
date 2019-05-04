@@ -156,6 +156,67 @@ public class Knight extends Chessman {
         System.out.println("Wrong move , Try again");
         return false;
     }
+    public boolean checkMove (int xF , int yF , Ground ground)
+    {
+        if (xF - getX() == -2 && yF - getY() == -1) {
+            if (ground.checkEmpty(getX() - 2, getY() - 1) == false && ground.getCell(getX() - 2, getY() - 1).charAt(0) != getColor()) {
+                return true;
+            } else if (ground.checkEmpty(getX() - 2, getY() - 1)) {
+                return true;
+            }
+        } else if (xF - getX() == +2 && yF - getY() == +1) {
+            if (ground.checkEmpty(getX() + 2, getY() + 1) == false && ground.getCell(getX() + 2, getY() + 1).charAt(0) != getColor()) {
+                return true;
+
+            } else if (ground.checkEmpty(getX() + 2, getY() + 1)) {
+                return true;
+            }
+
+        } else if (xF - getX() == +2 && yF - getY() == -1) {
+            if (ground.checkEmpty(getX() + 2, getY() - 1) == false && ground.getCell(getX() + 2, getY() - 1).charAt(0) != getColor()) {
+                return true;
+
+            } else if (ground.checkEmpty(getX() + 2, getY() - 1)) {
+                return true;
+            }
+        } else if (xF - getX() == -2 && yF - getY() == +1) {
+            if (ground.checkEmpty(getX() - 2, getY() + 1) == false && ground.getCell(getX() - 2, getY() + 1).charAt(0) != getColor()) {
+                return true;
+
+            } else if (ground.checkEmpty(getX() - 2, getY() + 1)) {
+                return true;
+            }
+        } else if (xF - getX() == -1 && yF - getY() == -2) {
+            if (ground.checkEmpty(getX() - 1, getY() - 2) == false && ground.getCell(getX() - 1, getY() - 2).charAt(0) != getColor()) {
+                return true;
+
+            } else if (ground.checkEmpty(getX() - 1, getY() - 2)) {
+                return true;
+            }
+        } else if (xF - getX() == +1 && yF - getY() == +2) {
+            if (ground.checkEmpty(getX() + 1, getY() + 2) == false && ground.getCell(getX() + 1, getY() + 2).charAt(0) != getColor()) {
+                return true;
+
+            } else if (ground.checkEmpty(getX() + 1, getY() + 2)) {
+                return true;
+            }
+        } else if (xF - getX() == +1 && yF - getY() == -2) {
+            if (ground.checkEmpty(getX() + 1, getY() - 2) == false && ground.getCell(getX() + 1, getY() - 2).charAt(0) != getColor()) {
+                return true;
+
+            } else if (ground.checkEmpty(getX() + 1, getY() - 2)) {
+                return true;
+            }
+        } else if (xF - getX() == -1 && yF - getY() == +2) {
+            if (ground.checkEmpty(getX() - 1, getY() + 2) == false && ground.getCell(getX() - 1, getY() + 2).charAt(0) != getColor()) {
+                return true;
+
+            } else if (ground.checkEmpty(getX() - 1, getY() + 2)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

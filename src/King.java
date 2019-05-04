@@ -22,6 +22,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -43,6 +44,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -64,6 +66,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -85,6 +88,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -106,6 +110,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -127,6 +132,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -148,6 +154,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -169,6 +176,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -190,6 +198,7 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
             }
             else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
             {
@@ -200,6 +209,109 @@ public class King extends Chessman {
                 setX(xF);
                 setY(yF);
                 ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean checkMove (int xF , int yF , Ground ground)
+    {
+        if (xF -getX() == 1 && yF - getY() == 0)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF -getX() == -1 && yF - getY() == 0)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF -getX() == 0 && yF - getY() == 0)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF -getX() == -1 && yF - getY() == 1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF -getX() == 0 && yF - getY() == 1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF -getX() == 1 && yF - getY() == 1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF -getX() == -1 && yF - getY() == -1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF -getX() == 1 && yF - getY() == -1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF -getX() == 0 && yF - getY() == -1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
                 return true;
             }
         }

@@ -48,4 +48,5 @@ public abstract class Chessman {
     }
 
     abstract boolean move(int xF, int yF, Ground ground);
+    abstract boolean checkMove(int xF, int yF, Ground ground);
 }

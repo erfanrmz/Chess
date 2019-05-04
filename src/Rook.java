@@ -93,6 +93,58 @@ public class Rook extends Chessman {
         return false;
 
     }
+    public boolean checkMove (int xF , int yF , Ground ground)
+    {
+        if (xF - getX() > 0 && yF - getY() == 0) {
+            for (int i = getX() + 1; i < xF; i++)
+                if (!ground.checkEmpty(i, getY()))
+                    return false;
+            if (ground.checkEmpty(xF, yF)) {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF,yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (xF - getX() < 0 && yF - getY() == 0) {
+            for (int i = getX() -1 ; i > xF; i--)
+                if (!ground.checkEmpty(i, getY()))
+                    return false;
+            if (ground.checkEmpty(xF, yF)) {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF,yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (yF - getY() < 0 && xF - getX() == 0) {
+            for (int i = getY() -1 ; i > yF; i--)
+                if (!ground.checkEmpty(getX(), i))
+                    return false;
+            if (ground.checkEmpty(xF, yF)) {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF,yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        else if (yF - getY() > 0 && xF - getX() == 0) {
+            for (int i = getY() + 1; i < yF; i++)
+                if (!ground.checkEmpty(getX(), i))
+                    return false;
+            if (ground.checkEmpty(xF, yF)) {
+                return true;
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF,yF).charAt(0) != getColor())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }
