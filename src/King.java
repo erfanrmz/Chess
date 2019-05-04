@@ -14,7 +14,195 @@ public class King extends Chessman {
 
     @Override
     public boolean move(int xF, int yF, Ground ground) {
+        if (xF -getX() == 1 && yF - getY() == 0)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        else if (xF -getX() == -1 && yF - getY() == 0)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        else if (xF -getX() == 0 && yF - getY() == 0)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        else if (xF -getX() == -1 && yF - getY() == 1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        else if (xF -getX() == 0 && yF - getY() == 1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        else if (xF -getX() == 1 && yF - getY() == 1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        else if (xF -getX() == -1 && yF - getY() == -1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        else if (xF -getX() == 1 && yF - getY() == -1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
+        else if (xF -getX() == 0 && yF - getY() == -1)
+        {
+            if (ground.checkEmpty(xF,yF))
+            {
+                ground.setCell("   ", getX(), getY());
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+            }
+            else if (!ground.checkEmpty(xF,yF) && ground.getCell(xF, yF).charAt(0) != getColor())
+            {
+                ground.setCell("   ", getX(), getY());
+                ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                ground.findMan(ground.getCell(xF, yF)).setX(-1);
+                ground.findMan(ground.getCell(xF, yF)).setY(-1);
+                setX(xF);
+                setY(yF);
+                ground.setCell(getName(), getX(), getY());
+                return true;
+            }
+        }
         return false;
-
     }
 }
