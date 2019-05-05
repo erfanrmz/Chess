@@ -40,7 +40,6 @@ public class Pawn extends Chessman {
                 ground.setCell(getName(), getX(), getY());
                 return true;
             } else {
-                System.out.println("Wrong move , Try again");
                 return false;
             }
         }
@@ -76,7 +75,6 @@ public class Pawn extends Chessman {
                 ground.setCell(getName(), getX(), getY());
                 return true;
             } else {
-                System.out.println("Wrong move , Try again");
                 return false;
             }
         }

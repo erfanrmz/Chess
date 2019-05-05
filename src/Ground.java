@@ -1,6 +1,5 @@
 import java.util.ArrayList;
-
-public class Ground {
+public class Ground implements Cloneable{
     private String[][] cell;
     private Chessman[] mans;
 
@@ -41,8 +40,8 @@ public class Ground {
 
 
     }
-    public Object clone() throws
-            CloneNotSupportedException
+    @Override
+    protected Object clone() throws CloneNotSupportedException
     {
         return super.clone();
     }
@@ -70,6 +69,7 @@ public class Ground {
         }
         return null;
     }
+
 
     public boolean checkEmpty(int i, int j) {
         if (cell[i][j].equals("   "))

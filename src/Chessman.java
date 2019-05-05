@@ -21,6 +21,7 @@ public abstract class Chessman {
         return color;
     }
 
+
     public int getX() {
         return x;
     }
