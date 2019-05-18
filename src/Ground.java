@@ -9,9 +9,9 @@ import java.util.ArrayList;
  */
 public class Ground  {
     private String[][] cell;
-    private Chessman[] mans;
+    private Chessman[][] mans;
 
-    public Ground(Chessman[] mans) {
+    public Ground(Chessman[][] mans) {
         this.mans = mans;
         cell = new String[8][8];
         for (int i = 0; i < 8; i++)
@@ -19,11 +19,11 @@ public class Ground  {
                 cell[i][j] = "   ";
     }
 
-    public Chessman getMan(int i) {
-        return mans[i];
+    public Chessman getMan(int i,int j) {
+        return mans[i][j];
     }
 
-    public Chessman[] getMans() {
+    public Chessman[][] getMans() {
         return mans;
     }
 
@@ -42,9 +42,12 @@ public class Ground  {
      * @return Chessman that have the name
      */
     public Chessman findMan(String name) {
-        for (int i = 0; i < 32; i++) {
-            if (name.equals(mans[i].getName()))
-                return mans[i];
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0 ; j < 8 ; j++)
+            {
+            if (name.equals(mans[i][j].getName()))
+                return mans[i][j];
+            }
         }
         return null;
     }
@@ -87,10 +90,11 @@ public class Ground  {
      */
     public ArrayList<Chessman> findThreatingMans(int x, int y, Ground ground) {
         ArrayList<Chessman> Threats = new ArrayList<>();
-        Chessman[] mans = ground.getMans();
-        for (int i = 0; i < 32 && !mans[i].isDeath(); i++) {
-            if (mans[i].checkMove(x, y, ground))
-                Threats.add(mans[i]);
+        Chessman[][] mans = ground.getMans();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0 ; j < 8 && !mans[i][j].isDeath();j++)
+            if (mans[i][j].checkMove(x, y, ground))
+                Threats.add(mans[i][j]);
         }
         return Threats;
     }
@@ -105,8 +109,9 @@ public class Ground  {
      */
 
     public Boolean haveThreat(int x, int y, Ground ground, char color) {
-        for (int i = 0; i < 32 && !mans[i].isDeath(); i++) {
-            if (mans[i].checkMove(x, y, ground) && mans[i].getColor() != color)
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0 ; j < 8 && !mans[i][j].isDeath() ; j++)
+            if (mans[i][j].checkMove(x, y, ground) && mans[i][j].getColor() != color)
                 return true;
 
         }
@@ -123,9 +128,9 @@ public class Ground  {
      * @return true if the king is checked otherwise false
      */
     public Boolean check(char color, Ground ground) {
-        if (color == 'W' && haveThreat(mans[14].getX(), mans[14].getY(), ground, mans[14].getColor())) {
+        if (color == 'W' && haveThreat(findMan("WK1").getX(), findMan("WK1").getY(), ground, findMan("WK1").getColor())) {
             return true;
-        } else if (color == 'B' && haveThreat(mans[30].getX(), mans[30].getY(), ground, mans[30].getColor())) {
+        } else if (color == 'B' && haveThreat(findMan("BK1").getX(), findMan("BK1").getY(), ground, findMan("BK1").getColor())) {
             return true;
         }
         return false;
