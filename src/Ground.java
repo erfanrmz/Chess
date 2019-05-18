@@ -1,49 +1,22 @@
 import java.util.ArrayList;
-public class Ground implements Cloneable{
+
+/**
+ * board of game
+ *
+ * @author erfan ramezani
+ * @version 1.0
+ * @since 4-29-2019
+ */
+public class Ground  {
     private String[][] cell;
     private Chessman[] mans;
 
-    public Ground() {
-        mans = new Chessman[32];
+    public Ground(Chessman[] mans) {
+        this.mans = mans;
         cell = new String[8][8];
         for (int i = 0; i < 8; i++)
             for (int j = 0; j < 8; j++)
                 cell[i][j] = "   ";
-        for (int i = 0; i < 8; i++) {
-            String name = "WP" + i;
-            mans[i] = new Pawn(name, 'W', 1, i);
-            setCell(name, 1, i);
-        }
-        mans[8] = new Rook("WR1", 'W', 0, 0);
-        mans[9] = new Rook("WR2", 'W', 0, 7);
-        mans[10] = new Knight("WN1", 'W', 0, 1);
-        mans[11] = new Knight("WN2", 'W', 0, 6);
-        mans[12] = new Bishop("WB1", 'W', 0, 2);
-        mans[13] = new Bishop("WB2", 'W', 0, 5);
-        mans[14] = new King("WK1", 'W', 0, 3);
-        mans[15] = new Queen("WQ1", 'W', 0, 4);
-        for (int i = 0; i < 8; i++) {
-            String name = "BP" + i;
-            mans[i + 16] = new Pawn(name, 'B', 6, i);
-            setCell(name, 6, i);
-        }
-        mans[24] = new Rook("BR1", 'B', 7, 0);
-        mans[25] = new Rook("BR2", 'B', 7, 7);
-        mans[26] = new Knight("BN1", 'B', 7, 1);
-        mans[27] = new Knight("BN2", 'B', 7, 6);
-        mans[28] = new Bishop("BB1", 'B', 7, 2);
-        mans[29] = new Bishop("BB2", 'B', 7, 5);
-        mans[30] = new King("BK1", 'B', 7, 3);
-        mans[31] = new Queen("BQ1", 'B', 7, 4);
-        for (int i = 0; i < 32; i++)
-            setCell(mans[i].getName(), mans[i].getX(), mans[i].getY());
-
-
-    }
-    @Override
-    protected Object clone() throws CloneNotSupportedException
-    {
-        return super.clone();
     }
 
     public Chessman getMan(int i) {
@@ -62,6 +35,12 @@ public class Ground implements Cloneable{
         this.cell[i][j] = cell;
     }
 
+    /**
+     * find the Chessman with name.
+     *
+     * @param name name of a chessman
+     * @return Chessman that have the name
+     */
     public Chessman findMan(String name) {
         for (int i = 0; i < 32; i++) {
             if (name.equals(mans[i].getName()))
@@ -70,12 +49,22 @@ public class Ground implements Cloneable{
         return null;
     }
 
-
+    /**
+     * checks that the cell is empty or not.
+     *
+     * @param i x of the cell
+     * @param j y of the cell
+     * @return true if the cell is empty otherwise false
+     */
     public boolean checkEmpty(int i, int j) {
         if (cell[i][j].equals("   "))
             return true;
         return false;
     }
+
+    /**
+     * prints the ground
+     */
 
     public void printground() {
         System.out.println("    A   B   C   D   E   F   G   H");
@@ -87,22 +76,37 @@ public class Ground implements Cloneable{
         }
         System.out.println("    A   B   C   D   E   F   G   H");
     }
-    public  ArrayList<Chessman> findThreatingMans (int x ,int y , Ground ground)
-    {
+
+    /**
+     * find chessmen that threat the cell
+     *
+     * @param x      x of the cell
+     * @param y      y of the cell
+     * @param ground the ground that this cell is in that
+     * @return an arraylist of chessmen that threats the cell
+     */
+    public ArrayList<Chessman> findThreatingMans(int x, int y, Ground ground) {
         ArrayList<Chessman> Threats = new ArrayList<>();
         Chessman[] mans = ground.getMans();
-        for (int i = 0 ; i < 32 && !mans[i].isDeath() ; i++ )
-        {
-            if (mans[i].checkMove(x,y,ground))
+        for (int i = 0; i < 32 && !mans[i].isDeath(); i++) {
+            if (mans[i].checkMove(x, y, ground))
                 Threats.add(mans[i]);
         }
         return Threats;
     }
-    public Boolean haveThreat (int x , int y , Ground ground ,char color)
-    {
-        for (int i = 0 ; i < 32 && !mans[i].isDeath() ; i++ )
-        {
-            if (mans[i].checkMove(x,y,ground) && mans[i].getColor() != color)
+
+    /**
+     * search that the cell have threat or not
+     *
+     * @param x      x of the cell
+     * @param y      y of the cell
+     * @param ground the ground that this cell is in that
+     * @return true if the cell have threat otherwise false
+     */
+
+    public Boolean haveThreat(int x, int y, Ground ground, char color) {
+        for (int i = 0; i < 32 && !mans[i].isDeath(); i++) {
+            if (mans[i].checkMove(x, y, ground) && mans[i].getColor() != color)
                 return true;
 
         }
@@ -110,19 +114,22 @@ public class Ground implements Cloneable{
 
 
     }
-    public Boolean check (char color , Ground ground)
-    {
-        if (color == 'W' && haveThreat(mans[14].getX(),mans[14].getY(),ground,mans[14].getColor()))
-        {
+
+    /**
+     * checks if the king is checked
+     *
+     * @param color  color of the king might be checked
+     * @param ground the ground that play in it
+     * @return true if the king is checked otherwise false
+     */
+    public Boolean check(char color, Ground ground) {
+        if (color == 'W' && haveThreat(mans[14].getX(), mans[14].getY(), ground, mans[14].getColor())) {
             return true;
-        }
-        else if (color == 'B' && haveThreat(mans[30].getX(),mans[30].getY(),ground,mans[30].getColor()))
-        {
+        } else if (color == 'B' && haveThreat(mans[30].getX(), mans[30].getY(), ground, mans[30].getColor())) {
             return true;
         }
         return false;
     }
-
 
 
 }

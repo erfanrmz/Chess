@@ -1,3 +1,9 @@
+/**
+ * This is queen peace class
+ * @author erfan ramezani
+ * @version 1.0
+ * @since 4-29-2019
+ */
 public class Queen extends Chessman {
     public Queen(String name, char color, int x, int y) {
         super(name, color, x, y);

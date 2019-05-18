@@ -1,3 +1,9 @@
+/**
+ * This is Bishop peace class
+ * @author erfan ramezani
+ * @version 1.0
+ * @since 4-29-2019
+ */
 public class Bishop extends Chessman {
     public Bishop(String name, char color, int x, int y) {
         super(name, color, x, y);

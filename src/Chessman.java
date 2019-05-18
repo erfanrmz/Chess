@@ -1,4 +1,13 @@
-public abstract class Chessman {
+import javax.swing.*;
+
+/**
+ * This is an abstract peace for every chessmen
+ * @author erfan ramezani
+ * @version 1.0
+ * @since 4-29-2019
+ */
+
+public abstract class Chessman extends JButton {
     private String name;
     private char color;
     private int x;
@@ -20,8 +29,6 @@ public abstract class Chessman {
     public char getColor() {
         return color;
     }
-
-
     public int getX() {
         return x;
     }
@@ -48,6 +55,21 @@ public abstract class Chessman {
         this.y = y;
     }
 
+    /**
+     *
+     * @param xF final x
+     * @param yF final y
+     * @param ground move on which ground
+     * @return true if move is right and move it to xF and yF otherwise false
+     */
     abstract boolean move(int xF, int yF, Ground ground);
+
+    /**
+     *
+     * @param xF final x
+     * @param yF final y
+     * @param ground move on which ground
+     * @return true if move is right otherwise false
+     */
     abstract boolean checkMove(int xF, int yF, Ground ground);
 }

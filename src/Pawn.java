@@ -1,3 +1,9 @@
+/**
+ * This is pawn peace class
+ * @author erfan ramezani
+ * @version 1.0
+ * @since 4-29-2019
+ */
 public class Pawn extends Chessman {
     private boolean firstMove;
 

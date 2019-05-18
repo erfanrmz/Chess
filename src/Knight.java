@@ -1,3 +1,9 @@
+/**
+ * This is knight peace class
+ * @author erfan ramezani
+ * @version 1.0
+ * @since 4-29-2019
+ */
 public class Knight extends Chessman {
     public Knight(String name, char color, int x, int y) {
         super(name, color, x, y);
