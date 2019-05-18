@@ -18,6 +18,12 @@ public class Main {
         JPanel knockDownWhite = new JPanel();
         JPanel turnPanel = new JPanel();
         Chessman[][] mans = new Chessman[8][8];
+        Ground chess = new Ground(mans);
+
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        Image img = kit.createImage("images\\B_King.png");
+        mainFrame.setIconImage(img);
+
 
         //Chess mans
         for (int i = 2 ; i <= 5 ; i++)
@@ -26,45 +32,45 @@ public class Main {
         for (int i = 0; i < 8; i++) {
             String name = "WP" + i;
             mans[1][i] = new Pawn(name, 'W', 1, i);
-            mans[1][i].setIcon(new ImageIcon("resources\\W_Pawn.png"));
+            mans[1][i].setIcon(new ImageIcon("images\\W_Pawn.png"));
         }
         mans[0][0] = new Rook("WR1", 'W', 0, 0);
-        mans[0][0].setIcon(new ImageIcon("resources\\W_Rook.png"));
+        mans[0][0].setIcon(new ImageIcon("images\\W_Rook.png"));
         mans[0][7] = new Rook("WR2", 'W', 0, 7);
-        mans[0][7].setIcon(new ImageIcon("resources\\W_Rook.png"));
+        mans[0][7].setIcon(new ImageIcon("images\\W_Rook.png"));
         mans[0][1] = new Knight("WN1", 'W', 0, 1);
-        mans[0][1].setIcon(new ImageIcon("resources\\W_Knight.png"));
+        mans[0][1].setIcon(new ImageIcon("images\\W_Knight.png"));
         mans[0][6] = new Knight("WN2", 'W', 0, 6);
-        mans[0][6].setIcon(new ImageIcon("resources\\W_Knight.png"));
+        mans[0][6].setIcon(new ImageIcon("images\\W_Knight.png"));
         mans[0][2] = new Bishop("WB1", 'W', 0, 2);
-        mans[0][2].setIcon(new ImageIcon("resources\\W_Bishop.png"));
+        mans[0][2].setIcon(new ImageIcon("images\\W_Bishop.png"));
         mans[0][5] = new Bishop("WB2", 'W', 0, 5);
-        mans[0][5].setIcon(new ImageIcon("resources\\W_Bishop.png"));
+        mans[0][5].setIcon(new ImageIcon("images\\W_Bishop.png"));
         mans[0][3] = new King("WK1", 'W', 0, 3);
-        mans[0][3].setIcon(new ImageIcon("resources\\W_King.png"));
+        mans[0][3].setIcon(new ImageIcon("images\\W_King.png"));
         mans[0][4] = new Queen("WQ1", 'W', 0, 4);
-        mans[0][4].setIcon(new ImageIcon("resources\\W_Queen.png"));
+        mans[0][4].setIcon(new ImageIcon("images\\W_Queen.png"));
         for (int i = 0; i < 8; i++) {
             String name = "BP" + i;
             mans[6][i] = new Pawn(name, 'B', 6, i);
-            mans[6][i].setIcon(new ImageIcon("resources\\B_Pawn.png"));
+            mans[6][i].setIcon(new ImageIcon("images\\B_Pawn.png"));
         }
         mans[7][0] = new Rook("BR1", 'B', 7, 0);
-        mans[7][0].setIcon(new ImageIcon("resources\\B_Rook.png"));
+        mans[7][0].setIcon(new ImageIcon("images\\B_Rook.png"));
         mans[7][7] = new Rook("BR2", 'B', 7, 7);
-        mans[7][7].setIcon(new ImageIcon("resources\\B_Rook.png"));
+        mans[7][7].setIcon(new ImageIcon("images\\B_Rook.png"));
         mans[7][1] = new Knight("BN1", 'B', 7, 1);
-        mans[7][1].setIcon(new ImageIcon("resources\\B_Knight.png"));
+        mans[7][1].setIcon(new ImageIcon("images\\B_Knight.png"));
         mans[7][6] = new Knight("BN2", 'B', 7, 6);
-        mans[7][6].setIcon(new ImageIcon("resources\\B_Knight.png"));
+        mans[7][6].setIcon(new ImageIcon("images\\B_Knight.png"));
         mans[7][2] = new Bishop("BB1", 'B', 7, 2);
-        mans[7][2].setIcon(new ImageIcon("resources\\B_Bishop.png"));
+        mans[7][2].setIcon(new ImageIcon("images\\B_Bishop.png"));
         mans[7][5] = new Bishop("BB2", 'B', 7, 5);
-        mans[7][5].setIcon(new ImageIcon("resources\\B_Bishop.png"));
+        mans[7][5].setIcon(new ImageIcon("images\\B_Bishop.png"));
         mans[7][3] = new King("BK1", 'B', 7, 3);
-        mans[7][3].setIcon(new ImageIcon("resources\\B_King.png"));
+        mans[7][3].setIcon(new ImageIcon("images\\B_King.png"));
         mans[7][4] = new Queen("BQ1", 'B', 7, 4);
-        mans[7][4].setIcon(new ImageIcon("resources\\B_Queen.png"));
+        mans[7][4].setIcon(new ImageIcon("images\\B_Queen.png"));
 
         boardPanel.setLayout(chesscells);
         mainFrame.getContentPane().add(boardPanel, BorderLayout.CENTER);
@@ -82,11 +88,12 @@ public class Main {
                     mans[i][j].setBackground(new Color(219, 188, 170));
                 else
                     mans[i][j].setBackground(new Color(122, 79, 52));
+                mans[i][j].addActionListener(new ButtonListener(mans,chess));
 
             }
         mainFrame.setVisible(true);
         //
-        Ground chess = new Ground(mans);
+
         for (int i = 0; i < 8; i++)
             for (int j = 0 ; j < 8 ; j++)
             chess.setCell(mans[i][j].getName(), mans[i][j].getX(), mans[i][j].getY());
@@ -94,7 +101,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int xF = 0;
         int yF = 0;
-        Ground testMove = null;
         String manName;
         String move;
         while (!((King) chess.findMan("WK1")).isMate() && !((King) chess.findMan("BK1")).isMate()) {

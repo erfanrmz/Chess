@@ -98,6 +98,15 @@ public class Ground  {
         }
         return Threats;
     }
+    public ArrayList<Chessman> canGoThere(Chessman chessman, Ground ground) {
+        ArrayList<Chessman> canGoThere = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0 ; j < 8;j++)
+                if (chessman.checkMove(i, j, ground))
+                    canGoThere.add(getMan(i,j));
+        }
+        return canGoThere;
+    }
 
     /**
      * search that the cell have threat or not
