@@ -7,6 +7,10 @@
 public class Bishop extends Chessman {
     public Bishop(String name, char color, int x, int y) {
         super(name, color, x, y);
+        if (color == 'W')
+            setIcon("images\\W_Bishop.png");
+        else
+            setIcon("images\\B_Bishop.png");
     }
 
     @Override

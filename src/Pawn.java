@@ -1,3 +1,8 @@
+
+import javax.swing.*;
+import java.awt.*;
+
+
 /**
  * This is pawn peace class
  * @author erfan ramezani
@@ -10,12 +15,17 @@ public class Pawn extends Chessman {
     public Pawn(String name, char color, int x, int y) {
         super(name, color, x, y);
         firstMove = false;
+        if (color == 'W')
+            setIcon("images\\W_Pawn.png");
+        else
+            setIcon("images\\B_Pawn.png");
     }
 
     @Override
     public boolean move(int xF, int yF, Ground ground) {
+        Chessman[][] mans = ground.getMans();
         if (getColor() == 'W') {
-            if (xF - getX() == 2 && yF - getY() == 0 && firstMove == false && ground.checkEmpty(getX() + 2, getY())) {
+            if (xF - getX() == 2 && yF - getY() == 0 && firstMove == false && ground.checkEmpty(getX() + 2, getY()) && ground.checkEmpty(getX()+1,getY())) {
                 ground.setCell("   ", getX(), getY());
                 setX(getX() + 2);
                 ground.setCell(getName(), getX(), getY());
@@ -50,7 +60,7 @@ public class Pawn extends Chessman {
             }
         }
         if (getColor() == 'B') {
-            if (xF - getX() == -2 && yF - getY() == 0 && firstMove == false && ground.checkEmpty(getX() - 2, getY())) {
+            if (xF - getX() == -2 && yF - getY() == 0 && firstMove == false && ground.checkEmpty(getX() - 2, getY()) && ground.checkEmpty(getX()-1,getY())) {
                 ground.setCell("   ", getX(), getY());
                 setX(getX() - 2);
                 ground.setCell(getName(), getX(), getY());
@@ -89,7 +99,7 @@ public class Pawn extends Chessman {
     public boolean checkMove (int xF , int yF , Ground ground)
     {
         if (getColor() == 'W') {
-            if (xF - getX() == 2 && yF - getY() == 0 && firstMove == false && ground.checkEmpty(getX() + 2, getY())) {
+            if (xF - getX() == 2 && yF - getY() == 0 && firstMove == false && ground.checkEmpty(getX() + 2, getY()) && ground.checkEmpty(getX()+1,getY())) {
                 return true;
             } else if (xF - getX() == 1 && yF - getY() == 0 && ground.checkEmpty(getX() + 1, getY())) {
                 return true;
@@ -102,7 +112,7 @@ public class Pawn extends Chessman {
             }
         }
         if (getColor() == 'B') {
-            if (xF - getX() == -2 && yF - getY() == 0 && firstMove == false && ground.checkEmpty(getX() - 2, getY())) {
+            if (xF - getX() == -2 && yF - getY() == 0 && firstMove == false && ground.checkEmpty(getX() - 2, getY()) && ground.checkEmpty(getX()-1,getY())) {
                 return true;
             } else if (xF - getX() == -1 && yF - getY() == 0 && ground.checkEmpty(getX() - 1, getY())) {
                 return true;

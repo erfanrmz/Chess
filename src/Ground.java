@@ -144,6 +144,12 @@ public class Ground  {
         }
         return false;
     }
+    public void swapMans(int xI , int yI , int xF , int yF)
+    {
+        Chessman swap = getMan(xI,yI);
+        mans[xI][yI] = mans[xF][yF];
+        mans[xF][yF] = swap;
+    }
 
 
 }

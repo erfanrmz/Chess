@@ -7,6 +7,10 @@
 public class Queen extends Chessman {
     public Queen(String name, char color, int x, int y) {
         super(name, color, x, y);
+        if (color == 'W')
+            setIcon("images\\W_Queen.png");
+        else
+            setIcon("images\\B_Queen.png");
     }
 
     @Override

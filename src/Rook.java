@@ -7,6 +7,10 @@
 public class Rook extends Chessman {
     public Rook(String name, char color, int x, int y) {
         super(name, color, x, y);
+        if (color == 'W')
+            setIcon("images\\W_Rook.png");
+        else
+            setIcon("images\\B_Rook.png");
     }
 
     @Override

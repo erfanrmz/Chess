@@ -10,6 +10,10 @@ public class King extends Chessman {
 
     public King(String name, char color, int x, int y) {
         super(name, color, x, y);
+        if (color == 'W')
+            setIcon("images\\W_King.png");
+        else
+            setIcon("images\\B_King.png");
         check = false;
         mate = false;
     }

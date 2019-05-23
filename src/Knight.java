@@ -7,6 +7,10 @@
 public class Knight extends Chessman {
     public Knight(String name, char color, int x, int y) {
         super(name, color, x, y);
+        if (color == 'W')
+            setIcon("images\\W_Knight.png");
+        else
+            setIcon("images\\B_Knight.png");
     }
 
     @Override
