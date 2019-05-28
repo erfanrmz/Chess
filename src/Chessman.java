@@ -15,6 +15,7 @@ public abstract class Chessman {
     private int y;
     private boolean death;
     private Icon icon;
+    private boolean select;
 
     public Chessman(String name, char color, int x, int y) {
         super();
@@ -23,10 +24,19 @@ public abstract class Chessman {
         this.color = color;
         this.x = x;
         this.y = y;
+        select = false;
     }
 
     public Icon getIcon() {
         return icon;
+    }
+
+    public boolean isSelect() {
+        return select;
+    }
+
+    public void setSelect(boolean select) {
+        this.select = select;
     }
 
     public void setIcon(String link) {

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class Ground  {
     private String[][] cell;
     private Chessman[][] mans;
+    private ArrayList<Chessman> knockDownB;
+    private ArrayList<Chessman> knockDownW;
 
     public Ground(Chessman[][] mans) {
         this.mans = mans;
@@ -17,9 +19,19 @@ public class Ground  {
         for (int i = 0; i < 8; i++)
             for (int j = 0; j < 8; j++)
                 cell[i][j] = "   ";
+            knockDownB = new ArrayList<Chessman>();
+            knockDownW = new ArrayList<Chessman>();
     }
 
-    public Chessman getMan(int i,int j) {
+    public ArrayList<Chessman> getKnockDownB() {
+        return knockDownB;
+    }
+
+    public ArrayList<Chessman> getKnockDownW() {
+        return knockDownW;
+    }
+
+    public Chessman getMan(int i, int j) {
         return mans[i][j];
     }
 

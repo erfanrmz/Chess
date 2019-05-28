@@ -19,6 +19,10 @@ public class Knight extends Chessman {
             if (ground.checkEmpty(getX() - 2, getY() - 1) == false && ground.getCell(getX() - 2, getY() - 1).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() - 2, getY() - 1)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(getX() - 2, getY() - 1)).setX(-1);
                 ground.findMan(ground.getCell(getX() - 2, getY() - 1)).setY(-1);
                 setX(getX() - 2);
@@ -37,6 +41,10 @@ public class Knight extends Chessman {
             if (ground.checkEmpty(getX() + 2, getY() + 1) == false && ground.getCell(getX() + 2, getY() + 1).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() + 2, getY() + 1)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(getX() + 2, getY() + 1)).setX(-1);
                 ground.findMan(ground.getCell(getX() + 2, getY() + 1)).setY(-1);
                 setX(getX() + 2);
@@ -56,6 +64,10 @@ public class Knight extends Chessman {
             if (ground.checkEmpty(getX() + 2, getY() - 1) == false && ground.getCell(getX() + 2, getY() - 1).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() + 2, getY() - 1)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(getX() + 2, getY() - 1)).setX(-1);
                 ground.findMan(ground.getCell(getX() + 2, getY() - 1)).setY(-1);
                 setX(getX() + 2);
@@ -74,6 +86,10 @@ public class Knight extends Chessman {
             if (ground.checkEmpty(getX() - 2, getY() + 1) == false && ground.getCell(getX() - 2, getY() + 1).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() - 2, getY() + 1)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(getX() - 2, getY() + 1)).setX(-1);
                 ground.findMan(ground.getCell(getX() - 2, getY() + 1)).setY(-1);
                 setX(getX() - 2);
@@ -92,6 +108,10 @@ public class Knight extends Chessman {
             if (ground.checkEmpty(getX() - 1, getY() - 2) == false && ground.getCell(getX() - 1, getY() - 2).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() - 1, getY() - 2)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(getX() - 1, getY() - 2)).setX(-1);
                 ground.findMan(ground.getCell(getX() - 1, getY() - 2)).setY(-1);
                 setX(getX() - 1);
@@ -110,6 +130,10 @@ public class Knight extends Chessman {
             if (ground.checkEmpty(getX() + 1, getY() + 2) == false && ground.getCell(getX() + 1, getY() + 2).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() + 1, getY() + 2)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(getX() + 1, getY() + 2)).setX(-1);
                 ground.findMan(ground.getCell(getX() + 1, getY() + 2)).setY(-1);
                 setX(getX() + 1);
@@ -128,6 +152,10 @@ public class Knight extends Chessman {
             if (ground.checkEmpty(getX() + 1, getY() - 2) == false && ground.getCell(getX() + 1, getY() - 2).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() + 1, getY() - 2)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(getX() + 1, getY() - 2)).setX(-1);
                 ground.findMan(ground.getCell(getX() + 1, getY() - 2)).setY(-1);
                 setX(getX() + 1);
@@ -146,6 +174,10 @@ public class Knight extends Chessman {
             if (ground.checkEmpty(getX() - 1, getY() + 2) == false && ground.getCell(getX() - 1, getY() + 2).charAt(0) != getColor()) {
                 ground.setCell("   ", getX(), getY());
                 ground.findMan(ground.getCell(getX() - 1, getY() + 2)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(getX() - 1, getY() + 2)).setX(-1);
                 ground.findMan(ground.getCell(getX() - 1, getY() + 2)).setY(-1);
                 setX(getX() - 1);

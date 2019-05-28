@@ -8,22 +8,28 @@ public class Main {
         GridLayout chesscells = new GridLayout(8, 8);
         JFrame mainFrame = new JFrame("Chess");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setBounds(0, 0, 1000, 800);
+        mainFrame.setBounds(0, 0, 1600, 800);
         mainFrame.setLayout(new BorderLayout());
         JPanel boardPanel = new JPanel();
         JPanel sidePanel = new JPanel();
+        JLabel jlabel = new JLabel("White Turn");
+        jlabel.setFont(new Font("Verdana",3,100));
+        jlabel.setForeground(new Color(79, 107, 122));
         sidePanel.setBackground(Color.orange);
         //boardPanel.setBackground(Color.gray);
         JPanel knockDownBlack = new JPanel();
         JPanel knockDownWhite = new JPanel();
         JPanel turnPanel = new JPanel();
+        turnPanel.setBackground(Color.white);
         Chessman[][] mans = new Chessman[8][8];
         Ground chess = new Ground(mans);
         JButton[][] mansB = new JButton[8][8];
-
+        JButton[] knockDownWB = new JButton[16];
+        JButton[] knockDownBB = new JButton[16];
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image img = kit.createImage("images\\icon.png");
         mainFrame.setIconImage(img);
+        boolean select = false;
 
 
         //Chess mans
@@ -59,6 +65,7 @@ public class Main {
             mans[6][i] = new Pawn(name, 'B', 6, i);
             mansB[6][i].setIcon(new ImageIcon("images\\B_Pawn.png"));
         }
+
         mans[7][0] = new Rook("BR1", 'B', 7, 0);
         mansB[7][0].setIcon(new ImageIcon("images\\B_Rook.png"));
         mans[7][7] = new Rook("BR2", 'B', 7, 7);
@@ -76,13 +83,53 @@ public class Main {
         mans[7][4] = new Queen("BQ1", 'B', 7, 4);
         mansB[7][4].setIcon(new ImageIcon("images\\B_Queen.png"));
         boardPanel.setLayout(chesscells);
+        sidePanel.setLayout(new GridLayout(3, 1));
         mainFrame.getContentPane().add(boardPanel, BorderLayout.CENTER);
-        sidePanel.setPreferredSize(new Dimension(200,800));
+        sidePanel.setPreferredSize(new Dimension(800,800));
         mainFrame.getContentPane().add(sidePanel, BorderLayout.WEST);
+        knockDownBlack.setSize(new Dimension(800,200));
+        knockDownWhite.setSize(new Dimension(800,200));
+        turnPanel.setSize(new Dimension(800,400));
+        sidePanel.add(knockDownBlack);
         sidePanel.add(turnPanel);
+        turnPanel.add(jlabel);
+        sidePanel.add(knockDownWhite);
+        knockDownBlack.setLayout(new GridLayout(2,8));
+        knockDownWhite.setLayout(new GridLayout(2,8));
+        for (int i = 0 ; i < 16 ; i++)
+            {
+                knockDownBB[i] = new JButton();
+                knockDownBlack.add(knockDownBB[i]);
+                knockDownWB[i] = new JButton();
+                knockDownWhite.add(knockDownWB[i]);
+                if (i % 2 == 0 && i < 8)
+                {
+                    knockDownBB[i].setBackground(new Color(166, 212, 219));
+                    knockDownWB[i].setBackground(new Color(166, 212, 219));
+                }
+                else if (i % 2 == 1 && i < 8)
+                {
+                    knockDownBB[i].setBackground(new Color(79, 107, 122));
+                    knockDownWB[i].setBackground(new Color(79, 107, 122));
 
-        for (int i = 0 ; i < 8 ; i++)
-            for (int j = 0 ; j < 8 ; j++)
+                }
+                if (i % 2 == 0 && i >= 8)
+                {
+                    knockDownBB[i].setBackground(new Color(79, 107, 122));
+                    knockDownWB[i].setBackground(new Color(79, 107, 122));
+                }
+                else if (i % 2 == 1 && i >= 8)
+                {
+                    knockDownBB[i].setBackground(new Color(166, 212, 219));
+                    knockDownWB[i].setBackground(new Color(166, 212, 219));
+
+
+
+                }
+
+            }
+        for (int i = 7 ; i >= 0 ; i--)
+            for (int j = 7 ; j >= 0 ; j--)
             {
                 boardPanel.add(mansB[i][j]);
                 mansB[i][j].setPreferredSize(new Dimension(100,100));
@@ -92,7 +139,7 @@ public class Main {
                     mansB[i][j].setBackground(new Color(219, 188, 170));
                 else
                     mansB[i][j].setBackground(new Color(122, 79, 52));
-                mansB[i][j].addActionListener(new ButtonListener(mansB,chess,turnPanel));
+                mansB[i][j].addActionListener(new ButtonListener(mansB,chess,turnPanel,jlabel,knockDownBB,knockDownWB));
 
             }
         JButton g = new JButton();
@@ -113,168 +160,7 @@ public class Main {
         String manName;
         String move;
 
-        while (!((King) chess.findMan("WK1")).isMate() && !((King) chess.findMan("BK1")).isMate()) {
 
-            chess.printground();
-            char turn = 'W';
-            if (moveNumber % 2 == 0)
-            {
-                turn = 'W';
-                turnPanel.setBackground(Color.white);
-            }
-            else
-            {
-                turn = 'B';
-                turnPanel.setBackground(Color.BLACK);
-            }
-
-            String kingName = turn == 'W'?"WK1":"BK1";
-
-            if (chess.check(turn , chess)) {
-                System.out.println(turn == 'W'?"White Check":"Black Check");
-                    ((King)chess.findMan(kingName)).setCheck(true);
-                    mansB[chess.findMan(kingName).getX()][chess.findMan(kingName).getY()].setBackground(new Color(186, 112, 200));
-            }
-            else
-            {
-
-                ((King)chess.findMan(kingName)).setCheck(false);
-                if (chess.findMan(kingName).getY() % 2 == 0 && chess.findMan(kingName).getX() % 2 == 0)
-                    mansB[chess.findMan(kingName).getX()][chess.findMan(kingName).getY()].setBackground(new Color(219, 188, 170));
-                else if (chess.findMan(kingName).getY()  % 2 == 1 && chess.findMan(kingName).getX()  % 2 == 1)
-                    mansB[chess.findMan(kingName).getX()][chess.findMan(kingName).getY()].setBackground(new Color(219, 188, 170));
-                else
-                    mansB[chess.findMan(kingName).getX()][chess.findMan(kingName).getY()].setBackground(new Color(122, 79, 52));
-
-            }
-
-            manName = sc.next();
-            yI = (int) manName.charAt(0) - 65;
-            xI = ((int) manName.charAt(1)) - 49;
-            move = sc.next();
-            yF = (int) move.charAt(0) - 65;
-            xF = ((int) move.charAt(1)) - 49;
-
-            Chessman man = chess.getMan(xI,yI);
-            if (man.getColor() == turn) {
-
-                if (man.isDeath())
-                    System.out.println("You cant move dead mans \n Choose another man:");
-
-                else if (!man.isDeath() && !(((King)chess.findMan(kingName)).isCheck())){
-                    int lastx = man.getX();
-                    int lasty = man.getY();
-                    if (chess.checkEmpty(xF,yF))
-                    {
-                        if (man.move(xF,yF,chess))
-                        {
-                            if (chess.check(turn,chess))
-                            {
-                                man.setX(lastx);
-                                man.setY(lasty);
-                                chess.setCell("   ",xF,yF);
-                                chess.setCell(man.getName(),man.getX(),man.getY());
-                                System.out.println("Wrong move , Try again!");
-                            }
-                            else
-                            {
-                                chess.swapMans(xI,yI,xF,yF);
-                                mansB[xI][yI].setIcon(null);
-                                mansB[xF][yF].setIcon(chess.getMan(xF,yF).getIcon());
-                                moveNumber++;
-                            }
-                        }
-                        else
-                            System.out.println("Wrong move , Try again");
-                    }
-                    else if (chess.getCell(xF,yF).charAt(0) != turn)
-                    {
-                        Chessman deadman = chess.findMan(chess.getCell(xF,yF));
-                        if (man.move(xF,yF,chess))
-                        {
-                            if (chess.check(turn,chess))
-                            {
-                                man.setX(lastx);
-                                man.setY(lasty);
-                                chess.setCell("   ",xF,yF);
-                                chess.setCell(man.getName(),man.getX(),man.getY());
-                                deadman.setDeath(false);
-                                deadman.setX(xF);
-                                deadman.setY(yF);
-                                chess.setCell(deadman.getName(),deadman.getX(),deadman.getY());
-                                System.out.println("Wrong move , Try again!");
-                            }
-                            else
-                            {
-                                chess.swapMans(xI,yI,xF,yF);
-                                mansB[xI][yI].setIcon(null);
-                                mansB[xF][yF].setIcon(chess.getMan(xF,yF).getIcon());
-                                moveNumber++;
-                            }
-                        }
-                        else
-                            System.out.println("Wrong move , Try again");
-                    }
-                }
-                else if (!man.isDeath() && (((King)chess.findMan(kingName)).isCheck()))
-                {
-                    int lastx = man.getX();
-                    int lasty = man.getY();
-                    if (chess.checkEmpty(xF,yF))
-                    {
-                        if (man.move(xF,yF,chess))
-                        {
-                            if (chess.check(turn,chess))
-                            {
-                                man.setX(lastx);
-                                man.setY(lasty);
-                                chess.setCell("   ",xF,yF);
-                                chess.setCell(man.getName(),man.getX(),man.getY());
-                                System.out.println("Wrong move , Try again!");
-                            }
-                            else {
-                                chess.swapMans(xI, yI, xF, yF);
-                                mansB[xI][yI].setIcon(null);
-                                mansB[xF][yF].setIcon(chess.getMan(xF,yF).getIcon());
-                                moveNumber++;
-                            }
-                        }
-                        else
-                            System.out.println("Wrong move , Try again");
-                    }
-                    else if (chess.getCell(xF,yF).charAt(0) != turn)
-                    {
-                        Chessman deadman = chess.findMan(chess.getCell(xF,yF));
-                        if (man.move(xF,yF,chess))
-                        {
-                            if (chess.check(turn,chess))
-                            {
-                                man.setX(lastx);
-                                man.setY(lasty);
-                                chess.setCell("   ",xF,yF);
-                                chess.setCell(man.getName(),man.getX(),man.getY());
-                                deadman.setDeath(false);
-                                deadman.setX(xF);
-                                deadman.setY(yF);
-                                chess.setCell(deadman.getName(),deadman.getX(),deadman.getY());
-                                System.out.println("Wrong move , Try again!");
-                            }
-                            else {
-
-                                chess.swapMans(xI, yI, xF, yF);
-                                mansB[xI][yI].setIcon(null);
-                                mansB[xF][yF].setIcon(chess.getMan(xF,yF).getIcon());
-                                moveNumber++;
-                            }
-                        }
-                        else
-                            System.out.println("Wrong move , Try again");
-                    }
-                }
-
-            } else
-                System.out.println("Its not " + (man.getColor() == 'B' ? "Black" : "White") + " turn");
-        }
     }
 }
 

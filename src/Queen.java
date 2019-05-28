@@ -26,6 +26,10 @@ public class Queen extends Chessman {
                 return true;
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(xF, yF)).setX(-1);
                 ground.findMan(ground.getCell(xF, yF)).setY(-1);
                 ground.setCell("   ", getX(), getY());
@@ -44,6 +48,10 @@ public class Queen extends Chessman {
                 return true;
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(xF, yF)).setX(-1);
                 ground.findMan(ground.getCell(xF, yF)).setY(-1);
                 ground.setCell("   ", getX(), getY());
@@ -62,6 +70,10 @@ public class Queen extends Chessman {
                 return true;
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(xF, yF)).setX(-1);
                 ground.findMan(ground.getCell(xF, yF)).setY(-1);
                 ground.setCell("   ", getX(), getY());
@@ -80,6 +92,10 @@ public class Queen extends Chessman {
                 return true;
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(xF, yF)).setX(-1);
                 ground.findMan(ground.getCell(xF, yF)).setY(-1);
                 ground.setCell("   ", getX(), getY());
@@ -99,6 +115,10 @@ public class Queen extends Chessman {
                 return true;
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(xF, yF)).setX(-1);
                 ground.findMan(ground.getCell(xF, yF)).setY(-1);
                 ground.setCell("   ", getX(), getY());
@@ -119,6 +139,10 @@ public class Queen extends Chessman {
                 return true;
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(xF, yF)).setX(-1);
                 ground.findMan(ground.getCell(xF, yF)).setY(-1);
                 ground.setCell("   ", getX(), getY());
@@ -139,6 +163,10 @@ public class Queen extends Chessman {
                 return true;
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(xF, yF)).setX(-1);
                 ground.findMan(ground.getCell(xF, yF)).setY(-1);
                 ground.setCell("   ", getX(), getY());
@@ -159,6 +187,10 @@ public class Queen extends Chessman {
                 return true;
             } else if (!ground.checkEmpty(xF, yF) && ground.getCell(xF, yF).charAt(0) != getColor()) {
                 ground.findMan(ground.getCell(xF, yF)).setDeath(true);
+                if(getColor() == 'W')
+                    ground.getKnockDownB().add(ground.findMan(ground.getCell(xF,yF)));
+                else if (getColor() == 'B')
+                    ground.getKnockDownW().add(ground.findMan(ground.getCell(xF,yF)));
                 ground.findMan(ground.getCell(xF, yF)).setX(-1);
                 ground.findMan(ground.getCell(xF, yF)).setY(-1);
                 ground.setCell("   ", getX(), getY());
